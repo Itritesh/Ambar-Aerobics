@@ -1,22 +1,15 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- PRELOADER (HOME PAGE ONLY) ---
     const preloader = document.getElementById('preloader');
     if (preloader) {
         window.addEventListener('load', () => {
-            // Wait for a minimum duration to ensure the initial animation is visible
             setTimeout(() => {
-                // Add the class to trigger the exit animations (text fade + circle wipe)
                 preloader.classList.add('preloader-hidden');
-
-                // After the CSS transitions are complete, set display to none
-                // Total animation time: 300ms (text fade) + 800ms (circle wipe) = 1100ms
                 setTimeout(() => {
                     preloader.style.display = 'none';
-                }, 1200); // Using 1.2s to be safe
-
-            }, 2200); // Minimum 2.2s display time after page load
+                }, 1200);
+            }, 2200);
         });
     }
 
@@ -39,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             heading: 'Your Fitness. Your Future.'
         },
     ];
+
     const GALLERY_IMAGES = [
         'images/Shop 1.jpeg',
         'images/Shop 2.jpeg',
@@ -71,9 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'images/5.jpeg',
         'images/6.jpeg',
         'images/7.jpeg',
-        
-        
     ];
+
     const BRANCHES = [
         { name: 'Mahavir Nagar', area: 'Kandivali (W)', address: 'Ground floor, Gulmohar Society, Opp. Parijat Bldg.', phone: '93260 25755', mapQuery: 'Ambar Aerobics Mahavir Nagar Kandivali West', instagram: '@ambar.aerobics.m.n' },
         { name: 'Charkop', area: 'Kandivali (W)', address: 'Ground floor, Kesari Building, Opp. Bhavishya Nidhi, Sector-3', phone: '82682 87885', mapQuery: 'Ambar Aerobics Charkop', instagram: '@ambar.aerobics.charkop' },
@@ -99,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const backToTopBtn = document.getElementById('back-to-top');
 
-    // Scrolled state for navbar and back-to-top button
+    // Navbar shadow and back-to-top button on scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
             navbar.classList.add('shadow-md');
@@ -137,26 +130,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Back to top button functionality
+    // Back to top button
     if (backToTopBtn) {
         backToTopBtn.addEventListener('click', () => {
-             window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // Smooth scrolling for hash links on the same page
+    // Smooth scrolling for hash links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const offsetTop = targetElement.offsetTop - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height'));
+                const navbarHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-height'));
+                const offsetTop = targetElement.offsetTop - navbarHeight;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
                 });
-                 // Close mobile menu if open
                 if (mobileMenu.classList.contains('translate-x-0')) {
                     menuToggle.click();
                 }
@@ -192,11 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.hero-slide');
             const dots = document.querySelectorAll('.hero-dot');
             
-            // Fade out the heading
             heroHeading.style.transition = 'none';
             heroHeading.style.opacity = '0';
             
-            // Switch slides and dots
             slides.forEach((slide, index) => {
                 slide.classList.toggle('opacity-100', index === currentSlide);
                 slide.classList.toggle('opacity-0', index !== currentSlide);
@@ -207,12 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 dot.classList.toggle('bg-white/50', index !== currentSlide);
             });
             
-            // Update the text and fade it back in
             setTimeout(() => {
                 heroHeading.textContent = HERO_CONTENT[currentSlide].heading;
                 heroHeading.style.transition = 'opacity 0.5s ease-in';
                 heroHeading.style.opacity = '1';
-            }, 100); // Short delay for a smoother effect
+            }, 100);
         }
         
         function goToSlide(n) {
@@ -222,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function startSlider() {
-             slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+            slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
         }
         
         function resetSliderInterval() {
@@ -240,7 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initHeroSlider();
     }
-
 
     // --- GALLERY & LIGHTBOX ---
     const galleryGrid = document.getElementById('gallery-grid');
@@ -304,6 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- BRANCHES ---
     const branchesContainer = document.getElementById('branches-container');
     if (branchesContainer) {
+        const GOOGLE_MAPS_API_KEY = "AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8";
+        
         function initBranches() {
             const cardsHTML = BRANCHES.map(branch => `
                 <div class="branch-card bg-white rounded-xl shadow-lg p-6 flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
@@ -327,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             ` : ''}
                             ${branch.instagram ? `
                                 <a href="https://www.instagram.com/${branch.instagram.replace('@','')}" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 hover:text-primary transition-colors">
-                                    <svg class="w-5 h-5 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c-4.01.07-5.46.205-6.191.488-.79.308-1.37.71-1.954 1.294-.585.584-.986 1.164-1.294 1.954C2.205 6.855 2.07 8.305 2 12.315c-.07 4.01-.205 5.46-.488 6.191-.308.79-.71 1.37-1.294 1.954.584.585 1.164.986 1.954 1.294.73.283 2.18.418 6.191.488 4.01-.07 5.46-.205 6.191-.488.79-.308 1.37-.71 1.954-1.294.585-.584.986-1.164 1.294-1.954.283-.73.418-2.18.488-6.191.07-4.01.205-5.46.488-6.191.308-.79.71-1.37-1.294-1.954-.584-.585-1.164-.986-1.954-1.294-.73-.283-2.18-.418-6.191-.488zM12 4.06c3.863 0 4.31.016 5.815.086 1.44.068 2.318.35 2.868.564.69.28 1.178.68 1.69 1.192.512.512.91 1 1.192 1.69.213.55.496 1.427.564 2.868.07 1.505.086 1.952.086 5.815s-.016 4.31-.086 5.815c-.068 1.44-.35 2.318-.564 2.868-.28.69-.68 1.178-1.192 1.69-.512.512-1 .91-1.69 1.192-.55.213-1.427-.496-2.868.564-1.505.07-1.952.086-5.815.086s-4.31-.016-5.815-.086c-1.44-.068-2.318-.35-2.868-.564-.69-.28-1.178-.68-1.69-1.192-.512-.512-.91-1-1.192-1.69-.213-.55-.496-1.427-.564-2.868-.07-1.505-.086-1.952-.086-5.815s.016-4.31.086-5.815c.068-1.44.35-2.318.564-2.868.28-.69.68-1.178 1.192-1.69.512-.512 1-.91 1.69-1.192.55-.213 1.427-.496 2.868.564C7.69 4.076 8.137 4.06 12 4.06zm0 2.478a5.462 5.462 0 100 10.924 5.462 5.462 0 000-10.924zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd"/></svg>
+                                    <svg class="w-5 h-5 mr-3 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                                     <span>${branch.instagram}</span>
                                 </a>
                             `: ''}
@@ -340,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="map-container hidden mt-4">
                              <iframe 
                                 class="w-full h-64 border-0 rounded-lg"
-                                src="https://www.google.com/maps/embed/v1/place?key=${"AI" + "zaSy" + "BFw0Qby" + "q9zTFTd-tUY6d" + "ZWTgaQzuU17R8"}&q=${encodeURIComponent(branch.mapQuery)}"
+                                src="https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(branch.mapQuery)}"
                                 allowfullscreen
                                 loading="lazy"
                                 title="${branch.name} location map">
@@ -384,7 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (message) text += `*Message:* ${message}\n`;
             
             const whatsappUrl = `https://wa.me/919321065529?text=${encodeURIComponent(text)}`;
-            
             window.open(whatsappUrl, '_blank');
         });
     }
