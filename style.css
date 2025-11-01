@@ -1,0 +1,556 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  --navbar-height: 76px;
+}
+
+/* Responsive navbar height */
+@media (max-width: 768px) {
+  body {
+    --navbar-height: 64px;
+  }
+}
+
+/* Preloader */
+#preloader {
+    clip-path: circle(150% at 50% 50%); 
+    transition: clip-path 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+    transition-delay: 0.3s;
+}
+
+#preloader > div {
+    transition: opacity 0.3s ease-out;
+    padding: 0 1rem;
+}
+
+#preloader.preloader-hidden {
+    clip-path: circle(0% at 50% 50%);
+}
+
+#preloader.preloader-hidden > div {
+    opacity: 0;
+}
+
+#preloader .brand-name span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: reveal-up 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+#preloader .tagline {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: reveal-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 1s forwards;
+}
+
+@keyframes reveal-up {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.text-shadow-lg {
+   text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+}
+
+/* Reveal on Scroll Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade in Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Active Nav Link Styling */
+.page-home .nav-link[href="index.html"]:not(.bg-primary),
+.page-about .nav-link[href="about.html"]:not(.bg-primary),
+.page-courses .nav-link[href="courses.html"]:not(.bg-primary),
+.page-gallery .nav-link[href="gallery.html"]:not(.bg-primary),
+.page-contact .nav-link[href="contact.html"]:not(.bg-primary) {
+    color: #E50914;
+    font-weight: 600;
+}
+
+/* Parallax Hero for Courses Page */
+.parallax-hero {
+    position: relative;
+    height: 50vh;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Fix parallax on mobile */
+@media (max-width: 768px) {
+    .parallax-hero {
+        background-attachment: scroll;
+        min-height: 300px;
+    }
+}
+
+.parallax-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.parallax-hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive Container Fixes */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Logo Responsive */
+@media (max-width: 640px) {
+    header img[alt="Ambar Aerobics Logo"] {
+        height: 3rem !important;
+    }
+}
+
+/* Hero Section Responsive */
+#home {
+    min-height: 500px !important;
+}
+
+@media (max-width: 768px) {
+    #home {
+        min-height: 400px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    #home {
+        min-height: 350px !important;
+    }
+}
+
+/* Hero Buttons Responsive - FIX FOR TEXT BREAKING */
+@media (max-width: 640px) {
+    #home .flex.flex-col {
+        gap: 1rem;
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    #home a {
+        font-size: 0.8rem !important;
+        padding: 0.75rem 0.75rem !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        line-height: 1.3 !important;
+        min-height: fit-content !important;
+        height: auto !important;
+        display: block !important;
+        text-align: center !important;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    #home a {
+        font-size: 0.75rem !important;
+        padding: 0.625rem 0.5rem !important;
+        line-height: 1.2 !important;
+    }
+}
+
+/* Hero Controls Responsive */
+@media (max-width: 640px) {
+    #hero-prev, #hero-next {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+    
+    #hero-prev {
+        left: 0.5rem;
+    }
+    
+    #hero-next {
+        right: 0.5rem;
+    }
+}
+
+/* Gallery Responsive */
+@media (max-width: 640px) {
+    #gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+    #gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
+/* Lightbox Responsive */
+@media (max-width: 640px) {
+    #lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 2rem;
+    }
+    
+    #lightbox-prev, #lightbox-next {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 2rem;
+    }
+    
+    #lightbox-prev {
+        left: 0.5rem;
+    }
+    
+    #lightbox-next {
+        right: 0.5rem;
+    }
+}
+
+/* Floating Buttons Responsive */
+@media (max-width: 640px) {
+    a[aria-label="Chat on WhatsApp"] {
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+        bottom: 1rem !important;
+        right: 1rem !important;
+    }
+    
+    a[aria-label="Chat on WhatsApp"] svg {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+    
+    #back-to-top {
+        width: 3rem !important;
+        height: 3rem !important;
+        bottom: 5rem !important;
+        right: 1rem !important;
+        font-size: 1.25rem !important;
+    }
+}
+
+/* Branch Cards Responsive */
+@media (max-width: 1024px) {
+    #branches-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #branches-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Elements Responsive */
+@media (max-width: 640px) {
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea {
+        font-size: 1rem;
+    }
+    
+    #contact-form button {
+        font-size: 0.875rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* Section Padding Responsive */
+@media (max-width: 640px) {
+    section {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+}
+
+/* Typography Responsive - FIX FOR TEXT BREAKING */
+@media (max-width: 640px) {
+    h1, h2, h3, h4, h5, h6, p, span, div {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    h1 {
+        font-size: 1.875rem !important;
+        line-height: 2.25rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
+    }
+    
+    h3 {
+        font-size: 1.25rem !important;
+        line-height: 1.75rem !important;
+    }
+    
+    .text-4xl {
+        font-size: 1.875rem !important;
+        line-height: 2.25rem !important;
+    }
+    
+    .text-5xl {
+        font-size: 2rem !important;
+        line-height: 2.5rem !important;
+    }
+    
+    .text-6xl {
+        font-size: 2.25rem !important;
+        line-height: 2.75rem !important;
+    }
+    
+    .text-base, .text-lg {
+        font-size: 0.95rem !important;
+        line-height: 1.5rem !important;
+    }
+}
+
+/* Card Grid Responsive */
+@media (max-width: 1024px) {
+    .grid.lg\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .grid.lg\:grid-cols-3,
+    .grid.sm\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Image Aspect Ratio Fix */
+.aspect-\[4\/3\] {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+    footer .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Menu Toggle Responsive */
+@media (max-width: 768px) {
+    #menu-toggle {
+        padding: 0.5rem;
+    }
+}
+
+/* Mobile Menu Fix */
+@media (max-width: 768px) {
+    #mobile-menu {
+        overflow-y: auto;
+    }
+    
+    #mobile-menu nav {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+* {
+    max-width: 100%;
+}
+
+/* Image Loading Fix */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Emoji Size Fix for Mobile */
+@media (max-width: 640px) {
+    .text-6xl {
+        font-size: 3rem !important;
+    }
+}
+
+/* Course Grid Responsive */
+@media (max-width: 640px) {
+    #courses .grid.sm\:grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Stats/Features Grid */
+@media (max-width: 1024px) {
+    .grid.lg\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .grid.lg\:grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Hero Dots Responsive */
+@media (max-width: 640px) {
+    #hero-dots {
+        bottom: 1.5rem;
+    }
+    
+    #hero-dots button {
+        width: 0.625rem;
+        height: 0.625rem;
+    }
+}
+
+/* Text Container Max Width */
+@media (max-width: 640px) {
+    .max-w-3xl, .max-w-4xl, .max-w-5xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Button Hover Effects on Touch Devices */
+@media (hover: none) {
+    .transform.hover\:-translate-y-1:active {
+        transform: translateY(-0.25rem);
+    }
+    
+    .transform.hover\:-translate-y-2:active {
+        transform: translateY(-0.5rem);
+    }
+}
+
+/* Fix for Dual Path Cards on Mobile */
+@media (max-width: 768px) {
+    .grid.md\:grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Card Padding Fix for Mobile */
+@media (max-width: 640px) {
+    .bg-white.p-10 {
+        padding: 1.5rem !important;
+    }
+    
+    .p-8 {
+        padding: 1.25rem !important;
+    }
+    
+    .p-6 {
+        padding: 1rem !important;
+    }
+}
+
+/* Button Text Wrapping Fix */
+@media (max-width: 640px) {
+    button, a.bg-primary, a.border-2 {
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        text-align: center !important;
+        line-height: 1.4 !important;
+    }
+}
+
+/* Contact CTA Section Fix */
+@media (max-width: 640px) {
+    #contact-cta a {
+        font-size: 0.875rem !important;
+        padding: 0.75rem 1rem !important;
+        white-space: normal !important;
+        line-height: 1.4 !important;
+        min-height: 2.5rem;
+    }
+}
+
+/* Testimonial Cards */
+@media (max-width: 768px) {
+    .grid.md\:grid-cols-2 {
+        gap: 1.5rem;
+    }
+}
+
+/* Branch Card Map Container */
+@media (max-width: 640px) {
+    .map-container iframe {
+        height: 200px !important;
+    }
+}

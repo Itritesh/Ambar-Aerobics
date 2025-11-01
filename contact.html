@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact & Branches | Ambar Aerobics</title>
+    <meta name="description" content="Find your nearest Ambar Aerobics branch in Mumbai. Contact us to book a free trial class or to inquire about our professional fitness courses.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              primary: '#E50914',
+              'primary-hover': '#B8070E',
+              accent: '#00A650',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-white text-gray-800 font-poppins antialiased page-contact">
+
+    <!-- Header -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 bg-white">
+        <div class="container mx-auto px-8 flex justify-between items-center h-[--navbar-height]">
+            <a href="index.html" class="flex items-center">
+                <img src="images/logo.jpeg" alt="Ambar Aerobics Logo" class="h-14 w-auto" />
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">Home</a>
+                <a href="about.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">About</a>
+                <a href="courses.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">Courses</a>
+                <a href="gallery.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">Gallery</a>
+                <a href="contact.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">Contact</a>
+                <a href="contact.html" class="nav-link bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">Book Trial</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-toggle" aria-label="Toggle navigation menu" class="z-50 space-y-1.5">
+                    <span class="block w-6 h-0.5 bg-black transition-transform duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-opacity duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-transform duration-300"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-screen bg-white transition-transform duration-300 ease-in-out -translate-x-full z-40" style="padding-top: var(--navbar-height);">
+        <nav class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+            <a href="index.html" class="nav-link text-black hover:text-primary font-medium">Home</a>
+            <a href="about.html" class="nav-link text-black hover:text-primary font-medium">About</a>
+            <a href="courses.html" class="nav-link text-black hover:text-primary font-medium">Courses</a>
+            <a href="gallery.html" class="nav-link text-black hover:text-primary font-medium">Gallery</a>
+            <a href="contact.html" class="nav-link text-black hover:text-primary font-medium">Contact</a>
+            <a href="contact.html" class="nav-link bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-8 rounded-full shadow-md">Book Trial</a>
+        </nav>
+    </div>
+
+    <main style="padding-top: var(--navbar-height);">
+        <!-- Contact Form Section -->
+        <section id="contact-form-section" class="py-20 bg-white reveal">
+            <div class="container mx-auto px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+                        <p class="text-lg text-gray-600 mb-8">Have a question or want to book your free trial? Fill out the form below, and we'll get back to you as soon as possible. You can also find your nearest branch from the list.</p>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="inquiry" class="block text-sm font-medium text-gray-700">I'm interested in:</label>
+                                <select id="inquiry" name="inquiry" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary bg-white">
+                                    <option>Booking a Trial Class</option>
+                                    <option>Professional Courses</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+                             <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Message (Optional)</label>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                                    Send via WhatsApp
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="hidden lg:block">
+                        <img src="images/owner.jpeg" alt="Fitness class" class="rounded-xl shadow-2xl w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branches Section -->
+        <section id="branches" class="py-20 bg-gray-100 reveal">
+            <div class="container mx-auto px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800">Find Your Nearest Branch</h2>
+                    <p class="text-lg text-gray-600 mt-4">16 locations across Mumbai to serve you better</p>
+                </div>
+                <div id="branches-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- Branches cards will be injected by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-16">
+        <div class="container mx-auto px-8">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary mb-4">About Ambar Aerobics</h3>
+                    <p>Mumbai's trusted fitness institute since 2004. Transform your body, build your career.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-primary mb-4">Quick Links</h3>
+                    <ul>
+                         <li><a href="about.html" class="nav-link hover:text-white transition-colors py-1 block">About Us</a></li>
+                         <li><a href="courses.html" class="nav-link hover:text-white transition-colors py-1 block">Courses</a></li>
+                         <li><a href="gallery.html" class="nav-link hover:text-white transition-colors py-1 block">Gallery</a></li>
+                         <li><a href="contact.html" class="nav-link hover:text-white transition-colors py-1 block">Branches & Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-primary mb-4">Contact</h3>
+                    <p>WhatsApp: +91 9321065529</p>
+                    <p>Email: info@ambaraerobics.com</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p>&copy; 2024 Ambar Aerobics. All rights reserved. | Where Fitness is Fun!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a
+        href="https://wa.me/919321065529?text=Hello!%20I%20want%20to%20know%20more%20about%20Ambar%20Aerobics"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl z-40 transform hover:scale-110 transition-transform duration-300"
+        aria-label="Chat on WhatsApp"
+    >
+        <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+    <button
+        id="back-to-top"
+        class="fixed bottom-24 right-6 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-2xl z-40 text-white text-2xl transition-all duration-300 opacity-0 invisible hover:bg-primary-hover transform hover:-translate-y-1"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+    
+    <script src="script.js"></script>
+</body>
+</html>

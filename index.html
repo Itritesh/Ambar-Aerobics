@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ambar Aerobics | Transform with Ambar Aerobics!.</title>
+    <meta name="description" content="Mumbai's trusted fitness institute since 2004. Join high-energy group classes or become a certified fitness professional. Transform your body and build your career with Ambar Aerobics.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              primary: '#E50914',
+              'primary-hover': '#B8070E',
+              accent: '#00A650',
+            }
+          }
+        }
+      }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-white text-gray-800 font-poppins antialiased page-home">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-black z-[9999] flex items-center justify-center font-poppins">
+        <div class="text-center">
+            <div class="overflow-hidden">
+                <h1 class="brand-name text-4xl sm:text-6xl font-extrabold text-white">
+                    <span style="animation-delay: 0.1s;">A</span><span style="animation-delay: 0.15s;">m</span><span style="animation-delay: 0.2s;">b</span><span style="animation-delay: 0.25s;">a</span><span style="animation-delay: 0.3s;">r</span>
+                    <span class="text-primary" style="animation-delay: 0.35s;">&nbsp;</span>
+                    <span style="animation-delay: 0.4s;">A</span><span style="animation-delay: 0.45s;">e</span><span style="animation-delay: 0.5s;">r</span><span style="animation-delay: 0.55s;">o</span><span style="animation-delay: 0.6s;">b</span><span style="animation-delay: 0.65s;">i</span><span style="animation-delay: 0.7s;">c</span><span style="animation-delay: 0.75s;">s</span>
+                </h1>
+            </div>
+            <div class="overflow-hidden mt-4">
+                <p class="tagline text-xl sm:text-2xl text-primary font-large">
+                    Where Fitness is Fun!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 bg-white">
+        <div class="container mx-auto px-8 flex justify-between items-center h-[--navbar-height]">
+            <a href="index.html" class="flex items-center">
+                <img src="images/logo.jpeg" alt="Ambar Aerobics Logo" class="h-14 w-auto" />
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">Home</a>
+                <a href="about.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">About</a>
+                <a href="courses.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">Courses</a>
+                <a href="gallery.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">Gallery</a>
+                <a href="contact.html" class="nav-link text-black hover:text-primary font-medium text-sm transition-colors duration-200">Contact</a>
+                <a href="contact.html" class="nav-link bg-primary hover:bg-primary-hover text-white font-semibold py-2 px-6 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">Book Trial</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-toggle" aria-label="Toggle navigation menu" class="z-50 space-y-1.5">
+                    <span class="block w-6 h-0.5 bg-black transition-transform duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-opacity duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-black transition-transform duration-300"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full h-screen bg-white transition-transform duration-300 ease-in-out -translate-x-full z-40" style="padding-top: var(--navbar-height);">
+        <nav class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+            <a href="index.html" class="nav-link text-black hover:text-primary font-medium">Home</a>
+            <a href="about.html" class="nav-link text-black hover:text-primary font-medium">About</a>
+            <a href="courses.html" class="nav-link text-black hover:text-primary font-medium">Courses</a>
+            <a href="gallery.html" class="nav-link text-black hover:text-primary font-medium">Gallery</a>
+            <a href="contact.html" class="nav-link text-black hover:text-primary font-medium">Contact</a>
+            <a href="contact.html" class="nav-link bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-8 rounded-full shadow-md">Book Trial</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen min-h-[600px] w-full overflow-hidden" style="padding-top: var(--navbar-height);">
+            <div id="hero-slider-container"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-11/12 max-w-4xl">
+                <h1 id="hero-heading" class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-shadow-lg animate-fadeInUp" style="animation-delay: 0.2s;">
+                   Move. Groove. Transform.
+                </h1>
+                <p class="text-base sm:text-lg lg:text-xl font-light mb-10 text-shadow animate-fadeInUp" style="animation-delay: 0.4s;">
+                    Welcome to Ambar Aerobics, Mumbai's trusted fitness institute since 2004. Whether you want to join our high-energy group classes or become a certified fitness professional, your journey starts here.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center animate-fadeInUp" style="animation-delay: 0.6s;">
+                    <a href="contact.html" class="bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        Book Your FREE Trial Class
+                    </a>
+                    <a href="courses.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        Explore Professional Courses
+                    </a>
+                </div>
+            </div>
+            <button id="hero-prev" class="absolute top-1/2 -translate-y-1/2 left-4 z-20 bg-black/40 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center text-3xl transition-colors duration-300">‹</button>
+            <button id="hero-next" class="absolute top-1/2 -translate-y-1/2 right-4 z-20 bg-black/40 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center text-3xl transition-colors duration-300">›</button>
+            <div id="hero-dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3"></div>
+        </section>
+
+        <!-- Dual Path Section -->
+        <section class="py-20 bg-gray-100 reveal">
+            <div class="container mx-auto px-8">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white p-10 rounded-xl shadow-lg border-t-4 border-primary hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center">
+                        <div class="text-5xl mb-6">💪</div>
+                        <h3 class="text-2xl font-bold mb-2">FOR YOUR FITNESS</h3>
+                        <h4 class="text-lg text-primary mb-4">Join Our Community</h4>
+                        <p class="text-gray-600 mb-6">Experience the best group classes in Mumbai. From high-energy Aerobics and Zumba to focused Power Yoga and Pilates, our expert instructors make fitness fun, effective, and motivating.</p>
+                        <a href="contact.html" class="bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-8 rounded-full shadow-md transition-all duration-300">See Our Class Schedule</a>
+                    </div>
+                    <div class="bg-white p-10 rounded-xl shadow-lg border-t-4 border-accent hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center">
+                        <div class="text-5xl mb-6">🎓</div>
+                        <h3 class="text-2xl font-bold mb-2">FOR YOUR FUTURE</h3>
+                        <h4 class="text-lg text-accent mb-4">Start Your Career</h4>
+                        <p class="text-gray-600 mb-6">Love fitness? Make it your profession. As a leading training academy, we offer ISO-certified courses in aerobics, yoga, and nutrition to build your new career as a certified pro.</p>
+                        <a href="courses.html" class="bg-gray-800 hover:bg-black text-white font-semibold py-3 px-8 rounded-full shadow-md transition-all duration-300">Learn About Certification</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classes Section -->
+        <section id="classes" class="py-20 bg-white reveal">
+            <div class="container mx-auto px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Find a Class You'll Love</h2>
+                    <p class="text-lg text-gray-600">Tired of boring workout routines? Our group classes are designed to be fun, effective, and packed with positive energy. Led by expert, motivating instructors, we have something for every fitness level and every goal.</p>
+                    <h3 class="text-2xl font-semibold text-primary mt-8">Our Signature Classes Include:</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://e1.pxfuel.com/desktop-wallpaper/224/149/desktop-wallpaper-aerobics-aerobic.jpg" alt="Aerobics" class="w-full h-56 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Aerobics</h3>
+                            <p class="text-gray-600">The classic, high-energy cardio workout that started it all. Perfect for burning calories and boosting your heart health.</p>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://media.istockphoto.com/id/485457702/photo/kickboxing-class.jpg?s=612x612&w=0&k=20&c=kY1VcIXYIoWFGN4fEH0fjs4ou0a2CyVv_e_tvgJFcYo=" alt="Zumba" class="w-full h-56 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Zumba</h3>
+                            <p class="text-gray-600">Ditch the workout, join the party! Dance your way to fitness with infectious Latin and international rhythms.</p>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://t3.ftcdn.net/jpg/03/27/38/44/360_F_327384402_NzqnEUPS2qjwBzs7imQZPN9wRd4B6c4K.jpg" alt="Power Yoga & Yoga" class="w-full h-56 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Power Yoga & Yoga</h3>
+                            <p class="text-gray-600">Build strength, improve flexibility, and find your center. We offer styles ranging from intense Power Yoga flows to calming, traditional practices.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://images.ctfassets.net/ipjoepkmtnha/46EH5kpyNtUfIhJmtWwrTu/e3d099cd2abfc864a68bed508a250cb9/pilates-at-home-article-hero-02.jpg" alt="Pilates" class="w-full h-56 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Pilates</h3>
+                            <p class="text-gray-600">Develop a rock-solid core, improve your posture, and create long, lean muscles with our focused mat Pilates sessions.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://www.sustainhealth.fit/wp-content/uploads/2020/07/Here%E2%80%99s-Why-You-Should-Get-Into-Kickboxing-scaled.jpg" alt="Kickboxing" class="w-full h-56 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Kickboxing</h3>
+                            <p class="text-gray-600">Punch, kick, and sweat your stress away. This high-intensity class is a powerful way to build strength and endurance.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg group transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1800&auto=format&fit=crop" alt="Functional Training" class="w-full h-56 object-cover" loading="lazy" />
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Functional Training</h3>
+                            <p class="text-gray-600">Train your body for real-life movements. These full-body workouts build practical strength, agility, and stability.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                     <a href="about.html" class="bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-8 rounded-full shadow-md transition-all duration-300">Know More !</a>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-100 reveal">
+            <div class="container mx-auto px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800">What Our Community Says</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg relative">
+                        <div class="absolute top-0 left-6 text-8xl text-primary opacity-10 font-serif -translate-y-4">“</div>
+                        <p class="text-lg text-gray-700 italic mb-6 z-10 relative">Ambar Aerobics is my happy place! I've lost 10 kgs, but more importantly, I've gained so much confidence. The instructors are amazing, and the energy in every class is unbelievable.</p>
+                        <p class="font-bold text-primary text-right">— Priya S., <span class="font-normal text-gray-600">Kandivali Member</span></p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg relative">
+                        <div class="absolute top-0 left-6 text-8xl text-primary opacity-10 font-serif -translate-y-4">“</div>
+                        <p class="text-lg text-gray-700 italic mb-6 z-10 relative">I took the Yoga Teacher Training course here. The curriculum was so detailed, and Mr. Ambar's personal guidance was priceless. I got a job at a top studio just one month after graduating. Thank you!</p>
+                        <p class="font-bold text-primary text-right">— Rohan V., <span class="font-normal text-gray-600">Certified Instructor</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA Section -->
+        <section id="contact-cta" class="py-20 bg-gray-800 reveal">
+            <div class="container mx-auto px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Ready to Start Your Journey?</h2>
+                <p class="text-lg text-gray-300 mb-10">Join thousands who have transformed their lives with Ambar Aerobics</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                     <a href="https://wa.me/919321065529?text=Hello!%20I%20want%20to%20book%20a%20FREE%20trial%20class%20at%20Ambar%20Aerobics" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-hover text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        Book FREE Trial Class
+                    </a>
+                    <a href="https://wa.me/919321065529?text=Hello!%20I%20want%20to%20know%20more%20about%20professional%20courses%20at%20Ambar%20Aerobics" target="_blank" rel="noopener noreferrer" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                        Enquire About Courses
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-16">
+        <div class="container mx-auto px-8">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-lg font-semibold text-primary mb-4">About Ambar Aerobics</h3>
+                    <p>Mumbai's trusted fitness institute since 2004. Transform your body, build your career.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-primary mb-4">Quick Links</h3>
+                    <ul>
+                         <li><a href="about.html" class="nav-link hover:text-white transition-colors py-1 block">About Us</a></li>
+                         <li><a href="courses.html" class="nav-link hover:text-white transition-colors py-1 block">Courses</a></li>
+                         <li><a href="gallery.html" class="nav-link hover:text-white transition-colors py-1 block">Gallery</a></li>
+                         <li><a href="contact.html" class="nav-link hover:text-white transition-colors py-1 block">Branches & Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-primary mb-4">Contact</h3>
+                    <p>WhatsApp: +91 9321065529</p>
+                    <p>Email: info@ambaraerobics.com</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p>&copy; 2024 Ambar Aerobics. All rights reserved. | Where Fitness is Fun!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a
+        href="https://wa.me/919321065529?text=Hello!%20I%20want%20to%20know%20more%20about%20Ambar%20Aerobics"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl z-40 transform hover:scale-110 transition-transform duration-300"
+        aria-label="Chat on WhatsApp"
+    >
+        <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+    <button
+        id="back-to-top"
+        class="fixed bottom-24 right-6 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-2xl z-40 text-white text-2xl transition-all duration-300 opacity-0 invisible hover:bg-primary-hover transform hover:-translate-y-1"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+    
+    <script src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
