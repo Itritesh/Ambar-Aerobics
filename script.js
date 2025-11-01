@@ -33,39 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     ];
 
-    const GALLERY_IMAGES = [
-        'images/Shop 1.jpeg',
-        'images/Shop 2.jpeg',
-        'images/Shop3.jpeg',
-        'images/Interior 1.jpeg',
-        'images/Interior 2.jpeg',
-        'images/Interior 3.jpeg',
-        'images/Interior 4.jpeg',
-        'images/Interior 5.jpeg',
-        'images/Interior 6.jpeg',
-        'images/Interior 7.jpeg',
-        'images/Interior 8.jpeg',
-        'images/Aerobics 1.jpeg',
-        'images/Aerobics 2.jpeg',
-        'images/Aerobics 3.jpeg',
-        'images/Aerobics 4.jpeg',
-        'images/Aerobics.jpeg',
-        'images/jumba 1.jpeg',
-        'images/jumba 2.jpeg',
-        'images/jumba.jpeg',
-        'images/yoga 1.jpeg',
-        'images/yoga 2.jpeg',
-        'images/yoga 3.jpeg',
-        'images/yoga 4.jpeg',
-        'images/yoga 5.jpeg',
-        'images/1.jpeg',
-        'images/2.jpeg',
-        'images/3.jpeg',
-        'images/4.jpeg',
-        'images/6.jpeg',
-        'images/7.jpeg',
-    ];
-
     const BRANCHES = [
         { name: 'Mahavir Nagar', area: 'Kandivali (W)', address: 'Ground floor, Gulmohar Society, Opp. Parijat Bldg.', phone: '93260 25755', mapQuery: 'Ambar Aerobics Mahavir Nagar Kandivali West', instagram: '@ambar.aerobics.m.n' },
         { name: 'Charkop', area: 'Kandivali (W)', address: 'Ground floor, Kesari Building, Opp. Bhavishya Nidhi, Sector-3', phone: '82682 87885', mapQuery: 'Ambar Aerobics Charkop', instagram: '@ambar.aerobics.charkop' },
@@ -236,21 +203,25 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentGalleryIndex = 0;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-
-        function initGallery() {
-            galleryGrid.innerHTML = GALLERY_IMAGES.map((src, index) => `
-                <div data-index="${index}" class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-[4/3]">
-                    <img src="${src}" alt="Gallery ${index + 1}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
-                </div>
-            `).join('');
+        
+        // Get all visible gallery items (not hidden by onerror)
+        function getVisibleGalleryItems() {
+            return Array.from(galleryGrid.querySelectorAll('.gallery-item')).filter(item => 
+                item.style.display !== 'none'
+            );
         }
 
         function openLightbox(index) {
+            const visibleItems = getVisibleGalleryItems();
+            if (visibleItems.length === 0) return;
+            
             currentGalleryIndex = index;
-            lightboxImg.src = GALLERY_IMAGES[currentGalleryIndex];
-            lightbox.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+            const img = visibleItems[currentGalleryIndex].querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
         }
         
         function closeLightbox() {
@@ -259,34 +230,52 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function showNextImage() {
-            currentGalleryIndex = (currentGalleryIndex + 1) % GALLERY_IMAGES.length;
-            lightboxImg.src = GALLERY_IMAGES[currentGalleryIndex];
+            const visibleItems = getVisibleGalleryItems();
+            if (visibleItems.length === 0) return;
+            
+            currentGalleryIndex = (currentGalleryIndex + 1) % visibleItems.length;
+            const img = visibleItems[currentGalleryIndex].querySelector('img');
+            if (img) lightboxImg.src = img.src;
         }
 
         function showPrevImage() {
-            currentGalleryIndex = (currentGalleryIndex - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
-            lightboxImg.src = GALLERY_IMAGES[currentGalleryIndex];
+            const visibleItems = getVisibleGalleryItems();
+            if (visibleItems.length === 0) return;
+            
+            currentGalleryIndex = (currentGalleryIndex - 1 + visibleItems.length) % visibleItems.length;
+            const img = visibleItems[currentGalleryIndex].querySelector('img');
+            if (img) lightboxImg.src = img.src;
         }
         
         galleryGrid.addEventListener('click', e => {
             const item = e.target.closest('.gallery-item');
-            if (item) openLightbox(parseInt(item.dataset.index));
+            if (item && item.style.display !== 'none') {
+                const visibleItems = getVisibleGalleryItems();
+                const index = visibleItems.indexOf(item);
+                if (index !== -1) openLightbox(index);
+            }
         });
 
-        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-        document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); showNextImage(); });
-        document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); showPrevImage(); });
-        lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+        if (document.getElementById('lightbox-close')) {
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        }
+        if (document.getElementById('lightbox-next')) {
+            document.getElementById('lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); showNextImage(); });
+        }
+        if (document.getElementById('lightbox-prev')) {
+            document.getElementById('lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); showPrevImage(); });
+        }
+        if (lightbox) {
+            lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+        }
 
         document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('hidden')) {
+            if (lightbox && !lightbox.classList.contains('hidden')) {
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowRight') showNextImage();
                 if (e.key === 'ArrowLeft') showPrevImage();
             }
         });
-
-        initGallery();
     }
     
     // --- BRANCHES ---
